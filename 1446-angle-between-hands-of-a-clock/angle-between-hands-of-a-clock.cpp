@@ -1,15 +1,14 @@
 class Solution {
 public:
-    double angleClock(int hour, int minutes) {
-        double angle;
-        double factor=0.5;
+    double angleClock(int hour, int minutes) {      
+        //double angle;
 
         double minAngle = minutes*6;
-        double hourAngle = hour*30 +minutes*factor;
+        double hourAngle = hour*30 +minutes*0.5;
 
-        angle = abs(minAngle - hourAngle);
+        //angle = abs(minAngle - hourAngle);
 
-        if (angle >180) return 360-angle;
-        else return angle;
+        if (abs(minAngle - hourAngle) >180) return 360-abs(minAngle - hourAngle);
+        else return abs(minAngle - hourAngle);
     }
 };
