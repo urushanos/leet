@@ -2,13 +2,12 @@ class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
         
-        make_heap(nums.begin(), nums.end());
+        sort(nums.begin(), nums.end());
 
-        for(int i=0; i<k-1; i++){
-            pop_heap(nums.begin(), nums.end());
+        for(int i=k; i>1; i--){
             nums.pop_back();
         }
-        
-        return nums.front();
+
+        return nums.back();
     }
 };
