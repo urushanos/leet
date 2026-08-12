@@ -4,9 +4,9 @@ public:
         if(numRows==1 || numRows >= s.size())
             return s;
 
-        vector<vector<char>> rows(numRows);
+        vector<string> rows(numRows, "");
         int count =0;
-        bool down=true;
+        bool down =true;
 
         for(int i=0; i<s.size(); i++){
             rows[count].push_back(s[i]);
@@ -27,11 +27,9 @@ public:
             }
         }
 
-        string soln ="";
-        for(int i=0; i<numRows; i++){
-            for(char c: rows[i]){
+        string soln;
+        for(auto &c: rows){
             soln+= c;
-            }
         }
 
         return soln;
