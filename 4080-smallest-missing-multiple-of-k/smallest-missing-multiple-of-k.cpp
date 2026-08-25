@@ -2,7 +2,6 @@ class Solution {
 public:
     int missingMultiple(vector<int>& nums, int k) {
         unordered_map <int, int> mp;
-        int soln =1;
 
         for(auto i : nums){
             mp[i]=1;
@@ -14,6 +13,5 @@ public:
             else count++;
         }
 
-        return soln;
     }
 };
