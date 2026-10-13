@@ -1,15 +1,11 @@
 class Solution {
 public:
     int maxNumberOfBalloons(string text) {
-        unordered_map <char, int> count;
-
-        for (char c : text){
-            if(c == 'b' || c == 'a' || c == 'l' || c == 'o' || c == 'n'){
-                count[c]++;
-            }
+        unordered_map <char, int> freq;
+        for(char it : text){
+            freq[it]++;
         }
-
-        return min({count['b'],count['a'],count['l']/2,count['o']/2,count['n']});
-
+        
+        return min({freq['b'], freq['a'], freq['l']/2, freq['o']/2, freq['n']});
     }
 };
