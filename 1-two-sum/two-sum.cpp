@@ -1,16 +1,17 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map <int, int> hash; //value, index
+        unordered_map <int, int> freq;
+        vector<int> soln;
 
         for(int i=0; i<nums.size(); i++){
-            hash[nums[i]] = i;
+            if(freq.find(target-nums[i]) != freq.end()){
+                soln.push_back(i);
+                soln.push_back(freq[target-nums[i]]);
+                return soln;
+            }
+            else freq[nums[i]] = i;
         }
-
-        for(int i=0; i<nums.size(); i++){
-            if(hash.find(target-nums[i])!=hash.end() && hash[target-nums[i]]!=i) 
-                return{i, hash[target-nums[i]]};
-        }
-        return {};
+        return soln;
     }
 };
